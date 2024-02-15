@@ -1,0 +1,251 @@
+:root {
+    --dark: #000000;
+    --gray: #666666;
+    --light: #FFFFFF;
+
+}
+
+body {
+    font-family: 'Avenir', sans-serif;
+    font-weight: normal;
+}
+
+.container {
+    max-width: 1328px;
+    margin: 0 auto;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.collage {
+    display: grid;
+}
+
+.collage__heading {
+    font-family: 'ITC Avant Garde Gothic Pro';
+    font-size: 25px;
+    margin-bottom: 24px;
+    line-height: 32px;
+}
+
+.collage__desc {
+    color: var(--gray);
+    line-height: 25px;
+    margin-bottom: 24px;
+}
+
+.button {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 9px 10px;
+}
+
+.btn-black {
+    color: white;
+    background-color: var(--dark);
+}
+
+.btn-link {
+    color: var(--dark);
+    font-weight: 900;
+    font-size: 12px;
+    text-underline-offset: 6px;
+}
+
+.collage .button img {
+    vertical-align: text-bottom;
+    margin-left: 12px;
+}
+
+.collage__item {
+    position: relative;
+}
+
+.collage__product {
+    position: absolute;
+    right: 16px;
+    bottom: 26px;
+    background-color: var(--light);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product__info {
+    padding-left: 11px;
+    display: none;
+}
+
+.product__title {
+    font-size: 12.8px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.product__price {
+    font-size: 12.8px;
+    color: var(--gray);
+}
+
+.product__image img {
+    display: block;
+}
+
+@media (min-width:992px) {
+    .collage__item {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .product__info {
+        display: block;
+    }
+
+    .collage__product {
+        right: 40px;
+        bottom: 40px;
+    }
+
+    .collage {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: minmax(auto, 300px) 228px minmax(auto, 300px);
+        column-gap: 50px;
+    }
+
+    .collage img {
+        max-width: 100%;
+    }
+
+    .collage>.collage__item:nth-of-type(1) {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        align-self: center;
+        z-index: 1;
+    }
+
+    .collage>.collage__item:nth-of-type(1) .collage__content {
+        padding-left: 68px;
+        padding-right: 32px;
+    }
+
+    .collage>.collage__item:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        align-self: center;
+    }
+
+    .collage>.collage__item:nth-of-type(3) .collage__content {
+        padding-left: 56px;
+        padding-right: 112px;
+    }
+
+    .collage__inner {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: minmax(auto, 300px) 228px minmax(auto, 300px);
+        column-gap: 50px;
+        grid-row: 1 / span 3;
+        grid-column: 1 / span 2;
+    }
+
+    .collage__inner .collage__item>img {
+        aspect-ratio: 600 / 684;
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .collage__inner .collage__item:nth-of-type(1) {
+        grid-row: 1 / 3;
+        grid-column: 2 / 3;
+    }
+
+    .collage__inner .collage__item:nth-of-type(2) {
+        grid-row: 2 / 4;
+        grid-column: 1 / 2;
+    }
+
+    .container {
+        padding: 160px 56px
+    }
+
+    .collage__desc {
+        line-height: 32px;
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    .button {
+        padding: 15px 14px;
+        line-height: 17.48px;
+        font-size: 12.8px;
+    }
+
+    .btn-link {
+        font-size: 16px;
+        text-underline-offset: 10px;
+    }
+}
+
+@media(min-width:1200px) {
+    .collage {
+        grid-template-rows: minmax(auto, 456px) 228px minmax(auto, 456px);
+        column-gap: 128px;
+    }
+
+    .collage__inner {
+        grid-template-rows: minmax(auto, 456px) 228px minmax(auto, 456px);
+        column-gap: 128px;
+    }
+
+    .collage__heading {
+        font-size: 39px;
+        margin-bottom: 40px;
+        line-height: 50px;
+    }
+}
+
+@media (max-width:991px) {
+
+    .collage {
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+    }
+
+    .collage__inner {
+        display: flex;
+        column-gap: 24px;
+        overflow: auto;
+        padding-left: 24px;
+        position: relative;
+        margin-bottom: -10px;
+    }
+
+    .collage__inner::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 100%;
+        background-color: var(--light);
+        z-index: 1;
+    }
+
+    .collage__item>img {
+        width: 240px;
+        height: 273px;
+        margin-bottom: 10px;
+        aspect-ratio: 240 / 273;
+    }
+
+    .collage>div:nth-of-type(1),
+    .collage>div:nth-of-type(3) {
+        padding: 0 24px;
+    }
+}
